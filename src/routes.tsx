@@ -26,7 +26,6 @@ const AppRoutes = ()=>{
                     path:'event/:id',
                     element:(
                         <>
-                            <PageTitle title='Event | Event Details' />
                             <EventDetails />
                         </>
                     ),
@@ -58,7 +57,7 @@ const AppRoutes = ()=>{
                         </>
                     ),
                 },
-{
+                {
                     path:'portfolio',
                     element:(
                         <>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 interface IPartners {
     name: string;
     image: string;
@@ -223,7 +224,7 @@ const LandingPage: React.FC = () => {
                 <div className='h-[1px] w-36 bg-blue-600 rounded-full'></div>
                 <div className='w-full flex flex-row gap-4 flex-wrap '>
                     {events && events.map((event,index)=>(
-                        <div key={index} className='w-[350px] h-48 rounded-lg relative overflow-hidden transition-transform transform hover:scale-105'>
+                        <Link to={`/event/${event.title}`} key={index} className='w-[350px] h-48 rounded-lg relative overflow-hidden transition-transform transform hover:scale-105'>
                             <div className='bg-black w-full h-full absolute'></div>
                             <img src={event.image} alt={event.title} className='absolute inset-0 w-full h-full object-cover'/>
                             <div className='absolute p-5 hover:bg-black hover:bg-opacity-15 inset-0 flex flex-col justify-end text-white z-10'>
@@ -233,7 +234,7 @@ const LandingPage: React.FC = () => {
                                     <p className='text-sm font-bold'>{event.description}</p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>
