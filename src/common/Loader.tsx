@@ -8,11 +8,11 @@ const Loader = ()=>{
             strokeWidth="5"
             animationDuration="0.75"
             ariaLabel="rotating-lines-loading"
-            wrapperStyle={{
-                color: "#fff",
-                backgroundColor: "blue",
-            }}
-            wrapperClass=""
+            // wrapperStyle={{
+            //     color: "#fff",
+            //     backgroundColor: "blue",
+            // }}
+            // wrapperClass=""
         />
         </div>
     );

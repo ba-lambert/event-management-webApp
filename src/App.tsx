@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 
 import Loader from './common/Loader';
 import AppRoutes from './routes';
