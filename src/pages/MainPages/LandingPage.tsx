@@ -1,5 +1,22 @@
 import React, { useState, useEffect } from 'react';
-
+interface IPartners {
+    name: string;
+    image: string;
+}
+const partners: IPartners[] = [
+    {
+        name:'RwandaAir',
+        image:'https://assets.planespotters.net/files/airlines/3/rwandair_0ad884.svg'
+    },
+    {
+        name:'MTN Rwanda',
+        image:'https://www.mtn.co.rw/wp-content/uploads/2023/07/mtn-logo-nav-new-scaled-1.webp'
+    },
+    {
+        name:'Toyota Rwanda',
+        image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/ToyotaLogoRedVer.svg/2560px-ToyotaLogoRedVer.svg.png'
+    },
+    ]
 interface Event {
     id: number;
     title: string;
@@ -52,16 +69,16 @@ interface Category {
 }
 
 const categories: Category[] = [
-    {
-        image:'https://www.visitphilly.com/wp-content/uploads/2024/03/the-mann-center-concert-photo-by-snicole-for-the-mann-2200x1237px.jpg',
-        title: 'Music Concerts',
-        description: 'Experience the best live music from local and international artists. Enjoy concerts featuring various genres including rock, pop, jazz, and classical.'
-    },
-    {
-        image:'https://www.visitphilly.com/wp-content/uploads/2024/03/the-mann-center-concert-photo-by-snicole-for-the-mann-2200x1237px.jpg',
-        title: 'Sports Events',
-        description: 'Catch thrilling sports events from football matches to marathons. Join in the excitement and cheer for your favorite teams and athletes.'
-    },
+    // {
+    //     image:'https://www.visitphilly.com/wp-content/uploads/2024/03/the-mann-center-concert-photo-by-snicole-for-the-mann-2200x1237px.jpg',
+    //     title: 'Music Concerts',
+    //     description: 'Experience the best live music from local and international artists. Enjoy concerts featuring various genres including rock, pop, jazz, and classical.'
+    // },
+    // {
+    //     image:'https://www.visitphilly.com/wp-content/uploads/2024/03/the-mann-center-concert-photo-by-snicole-for-the-mann-2200x1237px.jpg',
+    //     title: 'Sports Events',
+    //     description: 'Catch thrilling sports events from football matches to marathons. Join in the excitement and cheer for your favorite teams and athletes.'
+    // },
     {
         image:'https://www.visitphilly.com/wp-content/uploads/2024/03/the-mann-center-concert-photo-by-snicole-for-the-mann-2200x1237px.jpg',
         title: 'Cultural Festivals',
@@ -177,15 +194,15 @@ const LandingPage: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <section className='h-screen w-full flex justify-start items-center m-auto flex-col space-y-5 py-20'>
+            <section className='h-auto w-full flex justify-start items-center m-auto flex-col space-y-5 py-20 px-14'>
                 <p className='text-2xl uppercase font-semibold '>Available Categories</p>
                 <div className='h-[1px] w-72 bg-blue-600 rounded-full'></div>
                 {/*<div className='flex flex-row'>*/}
-                    <div className='flex flex-row gap-4 w-full p-4'>
+                    <div className='flex flex-row gap-2 w-full'>
                         {categories && categories.map((category, index) => (
                             <div
                                 key={index}
-                                className='w-[400px] h-48 rounded-lg relative overflow-hidden transition-transform transform hover:scale-105'
+                                className='w-[350px] h-48 rounded-lg relative overflow-hidden transition-transform transform hover:scale-105'
                             >
                                 <div
                                     className='bg-black h-full w-full inset-0 opacity-50 rounded-lg absolute transition-opacity duration-300 hover:opacity-25'
@@ -202,10 +219,49 @@ const LandingPage: React.FC = () => {
                             </div>
                         ))}
                     </div>
+                <p className='text-2xl uppercase font-semibold '>Latest Events</p>
+                <div className='h-[1px] w-36 bg-blue-600 rounded-full'></div>
+                <div className='w-full flex flex-row gap-4 flex-wrap '>
+                    {events && events.map((event,index)=>(
+                        <div key={index} className='w-[350px] h-48 rounded-lg relative overflow-hidden transition-transform transform hover:scale-105'>
+                            <div className='bg-black w-full h-full absolute'></div>
+                            <img src={event.image} alt={event.title} className='absolute inset-0 w-full h-full object-cover'/>
+                            <div className='absolute p-5 hover:bg-black hover:bg-opacity-15 inset-0 flex flex-col justify-end text-white z-10'>
+                                    <p className='text-xl font-bold'>{event.title}</p>
+                                <div
+                                    className='absolute inset-0 bg-opacity-70 bg-black transition-opacity duration-300 opacity-0 hover:opacity-100 flex flex-col justify-center items-center cursor-pointer'>
+                                    <p className='text-sm font-bold'>{event.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </section>
-
-             <section className='h-screen w-full bg-orange-500'></section>
-            <section className='h-screen w-full'></section>
+            <section className='flex flex-col justify-center items-center space-y-5'>
+                <p className='text-2xl uppercase font-semibold '>Our Key Partners</p>
+                <div className='h-[1px] w-40 bg-blue-600 rounded-full '></div>
+                    <p className='text-gray-800 text-lg font-semibold'>Our Key Patrners companies that help us in our daily basis activities</p>
+                <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                    {/*<div className='h-[1px] w-72 bg-gray-800 rounded-full flex justify-center'></div>*/}
+                    <div className="flex flex-col">
+                        <a href="https://flowbite.com/"
+                           className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                            <img
+                                src="https://www.zarla.com/images/zarla-top-events-1x1-2400x2400-20211123-4fgq7httf3p79gk64jb6.png"
+                                className="h-8" alt="Flowbite Logo"/>
+                            <span
+                                className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Rwanda Events</span>
+                        </a>
+                        <div className='flex flex-row h-32 justify-center gap-x-3'>
+                            {partners && partners.map((partner, index) => (
+                                <div key={index} className='h-10 w-24'>
+                                    <img src={partner.image} className='w-full h-full' alt={partner.name}/>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
